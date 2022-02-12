@@ -13,3 +13,4 @@ basis = A(:, K);
 printf("\nРанг матриці А: %d", rang);
 disp("\nМЛНЗ підсистема:");
 disp(basis);
+

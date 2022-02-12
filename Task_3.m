@@ -49,3 +49,4 @@ endfor
 disp("\n Базис U+V:")
 disp(basis_SUM);
 printf(" dim(U+V) = %d\n", dim_SUM)
+
