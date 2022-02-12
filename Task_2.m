@@ -18,3 +18,4 @@ Q = X.^X;
 W = (X - x_0)/(-dy) + y_0;
 
 plot(X, Y, 'r', X, Q, 'g', X, W, 'b')
+

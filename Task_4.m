@@ -5,3 +5,4 @@ DX = gradient(M)
 
 printf(" f'(1) = %d\n", DX(1))
 printf(" f'(3) = %d\n", DX(3))
+

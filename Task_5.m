@@ -80,3 +80,4 @@ ans2 = dif_1; #округлимо ans1 до сотих
 
 Ans = round(ans1/ans2*100)/100;
 printf('Limit = %d\n', Ans)
+
