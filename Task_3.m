@@ -1,51 +1,26 @@
-disp('Task 3')
+disp('Task 3');
 
-U = [2 6 2 0 -6;
-     4 3 3 8 5;
-     -7 -4 -4 -14 -10;
-     3 7 5 4 -3;
-     1 2 7 7 5];
-%----------------------------------------------------
-V = [8 -4 28 16 0;
-     -2 -2 -4 -1 6;
-     6 6 12 3 -8;
-     8 2 22 10 8;
-     2 17 -11 -14 19];
-%------------------------------------------------
-[rU, kU] = rref(U);
-dim_U = length(kU);
-basis_U = U(:, kU);
+#y_1 = 1/x;
+#y_2 = sqrt(x);
 
-disp("\n Базис U:")
-disp(basis_U)
-printf(" dim(U) = %d\n", dim_U)
-%------------------------------------------------
-[rV, kV] = rref(V);
-dim_V = length(kV);
-basis_V = V(:, kV);
+x_0 = 1; # точка перетину графіків
 
-disp("\n Базис V:")
-disp(basis_V)
-printf(" dim(V) = %d\n", dim_V)
-%------------------------------------------------
-INT = [U, -V];
-[rINT, kINT] = rref(INT);
-dim_INT = length(kINT);
-basis_INT = INT(:, kINT);
+pkg load symbolic
+syms x
+y_1 = 1/x;
+dydx = diff(y_1);
+dy_1 = double(subs(dydx, x_0));
 
-disp("\nБазис intersection(U, V):")
-disp(basis_INT)
-printf(" dim(intersection(U, V)) = %d\n", dim_INT)
-%------------------------------------------------
-SUM = [U, V];
-[rSUM, kSUM] = rref(SUM);
-#dim_SUM = dim_V + dim_U - dim_INT;
-dim_SUM = length(kSUM);
-basis_SUM = [];
-for i = kSUM
-  basis_SUM = [basis_SUM, SUM(:, i)];
-endfor
+syms u
+y_2 = sqrt(u);
+Dydx = diff(y_2);
+dy_2 = double(subs(Dydx, x_0));
 
-disp("\n Базис U+V:")
-disp(basis_SUM);
-printf(" dim(U+V) = %d\n", dim_SUM)
+tan = (dy_2 - dy_1)/(1 + dy_1 * dy_2);
+Ans = atan(tan);
+printf('Кут між графіками = %d', rad2deg(Ans))
+
+X = linspace(-1, 5);
+Y = dy_1 * (X - x_0) + 1; #  дотична до y_1
+YY = dy_2 * (X - x_0) + 1;  #  дотична до y_2
+plot(X, Y, 'r', X, YY, 'b')
