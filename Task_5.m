@@ -54,3 +54,4 @@ while abs(difference) > eps || x < 1 - 10^(-6)
   x += 10^(-6);
 endwhile
 printf("√раниц€ справа: %.2f\n", y0)
+

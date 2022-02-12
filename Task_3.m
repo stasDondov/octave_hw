@@ -30,3 +30,4 @@ while abs(difference) > eps || x < 2 - 10^(-7)
 endwhile
 
 printf("Limit: %.2f\n", y0);
+

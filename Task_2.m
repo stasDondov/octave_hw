@@ -49,3 +49,4 @@ while abs(difference) > eps
 endwhile
 printf("Верхня границя: %.2f\n", sup);
 printf("Нижня границя: %.2f\n", inf);
+

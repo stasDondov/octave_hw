@@ -29,3 +29,4 @@ while abs(difference) > eps
 endwhile
 
 printf("Limit: %.2f\n", y_1);
+
